@@ -43,7 +43,7 @@ Hive Metastore
 Power BI Dashboard
 
 
-
+📂 Project Structure
 mobility-analysis/
 │
 ├── apps/
@@ -63,6 +63,8 @@ mobility-analysis/
 ├── docker-compose.yml
 │
 └── README.md
+
+
 ⚙️ Components Explanation
 1. Kafka Producer
 
@@ -75,12 +77,11 @@ speed
 location
 timestamp
 congestion_level
-2. Kafka Broker
 
+2. Kafka Broker
 Kafka acts as a distributed messaging system.
 
 Responsibilities:
-
 Receives streaming events
 Stores events in topics
 Serves data to Spark consumers
@@ -93,18 +94,15 @@ Port	Purpose
 Stores raw streaming data exactly as received from Kafka.
 
 Characteristics:
-
 Append-only
 No transformations
 Historical raw storage
 
 Storage Format:
-
 Delta Lake
+
 4. Silver Layer
-
 Performs:
-
 Data cleaning
 Null handling
 Schema enforcement
@@ -115,44 +113,35 @@ Purpose:
 Creates analytics-ready structured data.
 
 5. Gold Layer
-
 Contains business-level aggregated metrics.
-
 Example:
-
 Average traffic speed
 Congestion trends
 Area-wise vehicle count
 Peak traffic hours
 
 Used directly by:
-
 Power BI
 Reporting tools
 Analysts
+
+
 🥇 Medallion Architecture
-Bronze Layer
+Bronze Layer - Raw ingestion layer.
 
-Raw ingestion layer.
+Silver Layer - Cleaned and transformed layer.
 
-Silver Layer
-
-Cleaned and transformed layer.
-
-Gold Layer
-
-Business analytics layer.
+Gold Layer - Business analytics layer.
 
 Benefits:
-
 Scalability
 Data quality
 Easier debugging
 Better governance
+
+
 💾 Delta Lake
-
 Delta Lake provides:
-
 ACID Transactions
 Schema Enforcement
 Time Travel
@@ -162,9 +151,7 @@ Streaming + Batch support
 Used for reliable data lake storage.
 
 🗃️ Hive Metastore
-
 Hive Metastore stores metadata about:
-
 Databases
 Tables
 Schema
@@ -172,12 +159,10 @@ Table locations
 
 PostgreSQL is used as backend storage for Hive metadata.
 
+
 🐳 Docker Containers
-
 The project uses Docker Compose for orchestration.
-
 Containers:
-
 Kafka
 Spark Master
 Spark Worker
