@@ -1,5 +1,3 @@
-# mobility-analysis-project
-
 # 🚦 Mobility Analysis Project
 
 A real-time mobility and traffic analytics pipeline built using Kafka, PySpark, Delta Lake, Hive Metastore, and Power BI following the Medallion Architecture (Bronze → Silver → Gold).
@@ -65,7 +63,7 @@ mobility-analysis/
 └── README.md
 
 
-⚙️ Components Explanation
+⚙️ **Components Explanation**
 1. Kafka Producer
 
 Generates fake mobility/traffic data using Faker library and pushes records into Kafka topics.
@@ -85,12 +83,12 @@ Responsibilities:
 Receives streaming events
 Stores events in topics
 Serves data to Spark consumers
-Ports
-Port	Purpose
-9092	Internal Docker communication
-29092	External access from host machine
-3. Bronze Layer
+Ports:
+      Port	Purpose
+      9092	Internal Docker communication
+      29092	External access from host machine
 
+3. Bronze Layer
 Stores raw streaming data exactly as received from Kafka.
 
 Characteristics:
@@ -126,7 +124,7 @@ Reporting tools
 Analysts
 
 
-🥇 Medallion Architecture
+🥇 **Medallion Architecture**
 Bronze Layer - Raw ingestion layer.
 
 Silver Layer - Cleaned and transformed layer.
